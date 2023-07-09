@@ -1,6 +1,5 @@
 .sidenav-container {
   height: 100%;
-  
 }
 
 .sidenav {
@@ -17,7 +16,6 @@
   z-index: 1;
 }
 
-
 .left {
   position: absolute;
   top: 1px;
@@ -26,4 +24,8 @@
   padding: 10px;
 }
 
-
+mat-label {
+  border-radius: 15px;
+  color: black;
+  display: flex;
+}

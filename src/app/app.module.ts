@@ -17,13 +17,19 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { ApiKeyDialogComponent } from './api-key-dialog/api-key-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     AppComponent,
     GithubComponent,
     NavigationComponent,
-    CalculatorComponent
+    CalculatorComponent,
+    ApiKeyDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +50,10 @@ import { CalculatorComponent } from './calculator/calculator.component';
     RouterModule,
     MatExpansionModule,
     MatTooltipModule,
+    MatInputModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatDialogModule,
     RouterModule.forRoot([])
   ],
   providers: [],

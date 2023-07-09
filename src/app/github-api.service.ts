@@ -4,6 +4,25 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GithubApiService {
+  
+  private dialogOpened = false;
 
+  token = '';
+  
   constructor() { }
+  
+  isDialogOpened(): boolean {
+    return this.dialogOpened;
+  }
+
+  getToken(): string {
+    return this.token;
+  }
+
+  setToken(token: string): void {
+    this.token = token;
+  }
+  setDialogOpened(value: boolean): void {
+    this.dialogOpened = value;
+  }
 }

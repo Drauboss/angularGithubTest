@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Octokit } from '@octokit/rest';
 import { restEndpointMethods } from "@octokit/plugin-rest-endpoint-methods";
+import { MatDialog } from '@angular/material/dialog';
+import { ApiKeyDialogComponent } from '../api-key-dialog/api-key-dialog.component';
+import { GithubApiService } from '../github-api.service';
 
-const token = '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';
 
 @Component({
   selector: 'app-github',
@@ -15,17 +17,62 @@ export class GithubComponent implements OnInit {
   commits: any;
   repos: any;
 
-  token = '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';
+  token = '';
 
-  octokit = new Octokit({
-    auth: this.token
-  });
+
+  octokit!: Octokit;
+
+
 
   isElementVisible: boolean = false;
 
   buttons: Array<any> = [];
   commitData: Array<any> = [];
   reposArray: Array<any> = [];
+
+  constructor(private dialog: MatDialog,
+    private dialogService: GithubApiService) { }
+
+
+  ngOnInit() {
+    console.log('GithubComponent.ngOnInit()');
+    if (!this.dialogService.isDialogOpened()) {
+      this.openApiKeyDialog();
+      this.dialogService.setDialogOpened(true);
+      
+    } else {
+      this.init();
+    }
+
+
+  }
+
+
+  init() {
+    this.token = this.dialogService.getToken();
+    this.octokit = new Octokit({ auth: this.token });
+    console.log(this.token, "dsaaaaaaaaaaaaaaaaaaadasdad");
+    this.getRepos();
+  }
+
+  openApiKeyDialog() {
+    const dialogRef = this.dialog.open(ApiKeyDialogComponent, {
+      width: '100%',
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // Hier können Sie die Logik implementieren, um mit dem geschlossenen Dialog-Ergebnis umzugehen
+      this.dialogService.setToken(result);
+      this.token = this.dialogService.getToken();
+
+      this.init();
+
+
+
+      console.log('Dialog-Ergebnis:', result);
+    });
+  }
 
   handleClick2(buttonId: number, buttonLabel: string) {
     // Aktion ausführen, wenn ein Button geklickt wird
@@ -36,7 +83,7 @@ export class GithubComponent implements OnInit {
 
 
     this.getAllCommits('Drauboss', buttonLabel);
-    
+
 
     this.commitData[0].author = this.commitData[0].author.filter((element: any, index: any) => {
       return this.commitData[0].author.indexOf(element) === index;
@@ -97,11 +144,6 @@ export class GithubComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
-    this.getRepos();
-    console.log(this.reposArray)
-
-  }
 
 
 

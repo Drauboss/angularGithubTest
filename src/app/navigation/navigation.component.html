@@ -23,23 +23,20 @@
     </mat-toolbar>
 
     <mat-nav-list>
-      <mat-list-item (click)="isExpanded = !isExpanded">
-        <mat-icon
-          mat-list-icon
-          class="chevron-button"
-          [ngClass]="{ rotated: isExpanded }"
-          >chevron_right
-        </mat-icon>
-      </mat-list-item>
+
 
       <mat-list-item [routerLink]="'github'">
-        <mat-icon mat-list-icon>home</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">Github</span>
+        <mat-label>
+          <mat-icon mat-list-icon>person</mat-icon>
+          Github
+        </mat-label>
       </mat-list-item>
 
       <mat-list-item [routerLink]="'calculator'">
-        <mat-icon mat-list-icon>home</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">Calculator</span>
+        <mat-label>
+          <mat-icon mat-list-icon>calculate</mat-icon>
+          Calculator
+        </mat-label>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
