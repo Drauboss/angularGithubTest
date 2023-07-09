@@ -1,0 +1,26 @@
+<h1>Repos:</h1>
+<div>
+  <button
+    *ngFor="let button of buttons"
+    (click)="handleClick2(button.id, button.label)"
+  >
+    {{ button.label }}
+  </button>
+</div>
+<div>
+  <button (click)="handleClick()">Zeige/verstecke Commits</button>
+</div>
+
+<div *ngIf="isElementVisible">
+  <h1>Commits:</h1>
+  <ul>
+    <li *ngFor="let item of commits">{{ item }} </li>
+  </ul>
+</div>
+
+<div *ngIf="isElementVisible">
+    <h1>Commits data:</h1>
+    <ul>
+      <li *ngFor="let item of commitData[0].author">{{ item }} </li>
+    </ul>
+  </div>
