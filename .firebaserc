@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "angular-test-af6ac"
+  },
+  "targets": {
+    "angular-test-af6ac": {
+      "hosting": {
+        "angularGithubTest": [
+          "angular-test-af6ac"
+        ]
+      }
+    }
+  }
+}
