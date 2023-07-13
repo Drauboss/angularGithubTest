@@ -2,7 +2,17 @@
 
 <mat-toolbar class="title-toolbar">
     <mat-toolbar-row>
-
+      <span class="title-left"> 
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="onToggleSidenav()"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+          <!-- menu or close -->
+        </button>
+         </span>
       <span class="title-center">Berkays coole Website</span> 
     </mat-toolbar-row>
   </mat-toolbar>

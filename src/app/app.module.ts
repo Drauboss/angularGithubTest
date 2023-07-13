@@ -29,7 +29,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     GithubComponent,
     NavigationComponent,
     CalculatorComponent,
-    ApiKeyDialogComponent
+    ApiKeyDialogComponent,
   ],
   imports: [
     BrowserModule,

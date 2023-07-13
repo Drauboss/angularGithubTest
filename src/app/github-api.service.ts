@@ -8,6 +8,7 @@ export class GithubApiService {
   private dialogOpened = false;
 
   token = '';
+  drawer: any;
   
   constructor() { }
   

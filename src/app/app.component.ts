@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { NavigationComponent } from './navigation/navigation.component';
+import { GithubApiService } from './github-api.service';
 
 
 
@@ -20,10 +21,15 @@ export class AppComponent {
     throw new Error('Method not implemented.');
   }
   title = 'angularGithubTest';
-  comp = new NavigationComponent();
   
+  constructor(public service: GithubApiService) { }
+
 
   onToggleSidenav() {
+
+    console.log('onToggleSidenav()');
+    console.log(this.service.drawer);
+    this.service.drawer.toggle();
         
   }
   showFiller = false;

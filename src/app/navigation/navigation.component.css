@@ -1,31 +1,70 @@
+
+
 .sidenav-container {
   height: 100%;
 }
 
 .sidenav {
-  width: 200px;
-}
-
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-
-.left {
-  position: absolute;
-  top: 1px;
-  left: 0px;
+  overflow: hidden;
+  height: 100%;
   width: 300px;
-  padding: 10px;
+  display: flex;
+
 }
+
+
+
+
+mat-toolbar {
+  display: flex;
+  background-color: inherit;
+}
+
+mat-toolbar-row {
+
+  justify-content: flex-start;
+  width: 100%;
+  padding-top: 15px;
+}
+
+
+mat-icon {
+  color: rgb(54, 117, 91);
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 3px
+}
+
+button:hover {
+  background-color: rgb(165, 196, 183);
+  color: white;
+}
+
+
 
 mat-label {
   border-radius: 15px;
   color: black;
   display: flex;
+  justify-content: space-between;
+}
+
+mat-nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+mat-list-item {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+mat-list-item:hover {
+  background-color: rgb(165, 196, 183);
+  color: white;
+
 }
