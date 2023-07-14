@@ -1,11 +1,16 @@
 <h1 mat-dialog-title>API Key eingeben</h1>
 <div mat-dialog-content>
   <mat-form-field appearance="fill" style="height: 200px; width: 100%">
+    <mat-label>Owner</mat-label>
+    <input matInput [(ngModel)]="owner" placeholder="Owner/Author"  required>
+    <mat-hint>github.com/AUTHOR/REPOSITORY_NAME</mat-hint>
+  </mat-form-field>  
+  <mat-form-field appearance="fill" style="height: 200px; width: 100%">
     <mat-label>API Key</mat-label>
     <input matInput [(ngModel)]="apiKey" placeholder="API Key"  required>
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="cancel()">Abbrechen</button>
-  <button mat-raised-button color="primary" (click)="save()">Speichern</button>
+  <button mat-raised-button [disabled]="!owner || !apiKey" color="primary" (click)="save()">Speichern</button>
 </div>

@@ -7,18 +7,7 @@
     mode="push"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <button
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawerToggle()"
-        >
-          <mat-icon aria-label="Side nav toggle icon">close</mat-icon>
-          <!-- menu or close -->
-        </button>
-      </mat-toolbar-row>
-    </mat-toolbar>
+
 
     <mat-nav-list>
       <mat-list-item [routerLink]="'github'">
@@ -39,19 +28,6 @@
 
   <!-- Content - rendered Content for the current router path into the <router-outlet>, e.g. /dashboard or /info-->
   <mat-sidenav-content>
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawerToggle()"
-        >
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-          <!-- menu or close -->
-        </button>
-      </mat-toolbar-row>
-    </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

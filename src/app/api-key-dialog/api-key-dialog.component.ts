@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 })
 export class ApiKeyDialogComponent implements OnInit {
 
+  owner?: string;
   apiKey?: string;
 
   constructor(public dialogRef: MatDialogRef<ApiKeyDialogComponent>) {}
@@ -24,6 +25,7 @@ export class ApiKeyDialogComponent implements OnInit {
   save() {
     // Hier können Sie die Logik implementieren, um den API-Schlüssel zu speichern und zu verwenden
     console.log('API Key:', this.apiKey);
-    this.dialogRef.close(this.apiKey);
+    console.log('Owner:', this.owner);
+    this.dialogRef.close({"api": this.apiKey, "owner": this.owner});
   }
 }
