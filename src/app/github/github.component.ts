@@ -4,6 +4,7 @@ import { restEndpointMethods } from "@octokit/plugin-rest-endpoint-methods";
 import { MatDialog } from '@angular/material/dialog';
 import { ApiKeyDialogComponent } from '../api-key-dialog/api-key-dialog.component';
 import { GithubApiService } from '../github-api.service';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class GithubComponent implements OnInit {
   repos: any;
 
   token = '';
+  owner = '';
 
 
   octokit!: Octokit;
@@ -50,6 +52,7 @@ export class GithubComponent implements OnInit {
 
   init() {
     this.token = this.dialogService.getToken();
+    this.owner = this.dialogService.getOwner();
     this.octokit = new Octokit({ auth: this.token });
     console.log(this.token, "dsaaaaaaaaaaaaaaaaaaadasdad");
     this.getRepos();
@@ -63,8 +66,10 @@ export class GithubComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       // Hier können Sie die Logik implementieren, um mit dem geschlossenen Dialog-Ergebnis umzugehen
-      this.dialogService.setToken(result);
+      this.dialogService.setToken(result.api);
+      this.dialogService.setOwner(result.owner);
       this.token = this.dialogService.getToken();
+      this.owner = this.dialogService.getOwner();
 
       this.init();
 
@@ -77,12 +82,12 @@ export class GithubComponent implements OnInit {
   handleClick2(buttonId: number, buttonLabel: string) {
     // Aktion ausführen, wenn ein Button geklickt wird
     console.log('Button', buttonId, 'wurde geklickt!');
-    this.getAllCommitMessages('Drauboss', buttonLabel).then(commitMessages => {
+    this.getAllCommitMessages(this.owner, buttonLabel).then(commitMessages => {
       this.commits = commitMessages;
     });
 
 
-    this.getAllCommits('Drauboss', buttonLabel);
+    this.getAllCommits(this.owner, buttonLabel);
 
 
     this.commitData[0].author = this.commitData[0].author.filter((element: any, index: any) => {

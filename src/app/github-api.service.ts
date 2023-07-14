@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 export class GithubApiService {
   
   private dialogOpened = false;
-
+  
+  owner = "";
   token = '';
   drawer: any;
   
@@ -15,14 +16,23 @@ export class GithubApiService {
   isDialogOpened(): boolean {
     return this.dialogOpened;
   }
-
+  
   getToken(): string {
     return this.token;
   }
-
+  
   setToken(token: string): void {
     this.token = token;
   }
+
+  setOwner(owner: any) {
+    this.owner = owner;
+  }
+
+  getOwner() {
+    return this.owner;
+  }
+
   setDialogOpened(value: boolean): void {
     this.dialogOpened = value;
   }

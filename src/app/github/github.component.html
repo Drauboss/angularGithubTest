@@ -1,11 +1,15 @@
+<button (click)="openApiKeyDialog()">Öffne Benutzerinformationen Dialog</button>
 <h1>Repos:</h1>
 <div>
-  <button
-    *ngFor="let button of buttons"
-    (click)="handleClick2(button.id, button.label)"
-  >
-    {{ button.label }}
-  </button>
+  <mat-button-toggle-group>  
+    <mat-button-toggle
+      *ngFor="let button of buttons"
+      [value]="button.id"
+      (click)="handleClick2(button.id, button.label)"
+    >
+      {{ button.label }}
+    </mat-button-toggle>
+  </mat-button-toggle-group>
 </div>
 <div>
   <button (click)="handleClick()">Zeige/verstecke Commits</button>
