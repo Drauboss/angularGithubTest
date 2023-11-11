@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
 import { GithubComponent } from './github/github.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   // Sidenavwrapper Component acts like a shell & the active child Component gets rendered into the <router-outlet>
@@ -10,6 +11,11 @@ const routes: Routes = [
     path: '',
     component: NavigationComponent,
     children: [
+      //add landing page
+      {
+        path: '',
+        component: LandingPageComponent
+      },
       {
         path: 'github',
         component: GithubComponent
@@ -23,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/github',
+    redirectTo: '',
     pathMatch: 'full'
   }
 ];

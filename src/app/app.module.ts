@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     NavigationComponent,
     CalculatorComponent,
     ApiKeyDialogComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
