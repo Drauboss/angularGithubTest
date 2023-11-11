@@ -7,9 +7,14 @@
     mode="push"
     [opened]="(isHandset$ | async) === false"
   >
-
-
     <mat-nav-list>
+      <mat-list-item [routerLink]="''">
+        <mat-label>
+          Home
+          <mat-icon mat-list-icon>home</mat-icon>
+        </mat-label>
+      </mat-list-item>
+
       <mat-list-item [routerLink]="'github'">
         <mat-label>
           Github
